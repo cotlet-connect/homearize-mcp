@@ -1,0 +1,29 @@
+[project]
+name = "homearize-mcp"
+version = "1.1.0"
+description = "Connect HomeArize to ChatGPT, Claude and any AI agent through Cotlet.dev, a hosted MCP server. No HomeArize API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["homearize", "homearize api", "homearize mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/homearize-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=homearize"
+Source = "https://github.com/cotlet-connect/homearize-mcp"
+
+[project.scripts]
+homearize-mcp = "homearize_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"homearize_agent.py" = "homearize_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["homearize_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
